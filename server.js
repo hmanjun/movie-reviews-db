@@ -45,6 +45,17 @@ app.post('/api/update-review', (req, res) => {
     })
 })
 
+app.delete('/api/movie/:id', (req, res) => {
+  const { id } = req.params;
+  db.query('DELETE FROM movies WHERE id = ?', [id], (err, results) =>{
+    if (err) {
+      console.log(err)
+    }
+
+    res.send(`deleted movie with ${id}`)
+  })
+})
+
 app.listen(PORT, () =>{
     console.log(`Listening on port ${PORT}`)
 })
