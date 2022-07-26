@@ -35,7 +35,7 @@ app.post('/api/add-movie', (req,res) => {
 
 app.post('/api/update-review', (req, res) => {
     const { movie_id, review} = req.body
-    db.query('INSERT INTO reviews (movie_id,review) VALUES (?,?)', movie_id, review, (err, results) => {
+    db.query('INSERT INTO reviews (movie_id,review) VALUES (?,?)', [movie_id, review], (err, results) => {
         if (err) {
             console.log(err);
         } else {
