@@ -18,7 +18,7 @@ const db = mysql.createConnection(
 );
 
 app.get('/api/movies', (req,res) => {
-  db.query('USE movie_db; SELECT * movies', (err,results) =>{
+  db.query('SELECT * FROM movies', (err,results) =>{
     err ? console.log(err) : res.send(results)
   })
 })
@@ -31,6 +31,18 @@ app.post('/api/add-movie', (req,res) => {
     }
     res.json(newMovie)
   })
+})
+
+app.post('/api/update-review', (req, res) => {
+    const { movie_id, review} = req.body
+    db.query('INSERT INTO reviews (movie_id,review) VALUES (?,?)', movie_id, review, (err, results) => {
+        if (err) {
+            console.log(err);
+        } else {
+            const newReview = {movie_id, review}
+            res.json(newReview)
+        }
+    })
 })
 
 app.listen(PORT, () =>{
