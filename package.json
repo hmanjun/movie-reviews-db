@@ -1,0 +1,21 @@
+{
+  "name": "movie-reviews-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hmanjun/movie-reviews-db.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hmanjun/movie-reviews-db/issues"
+  },
+  "homepage": "https://github.com/hmanjun/movie-reviews-db#readme"
+}
