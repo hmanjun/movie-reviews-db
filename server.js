@@ -24,7 +24,13 @@ app.get('/api/movies', (req,res) => {
 })
 
 app.post('/api/add-movie', (req,res) => {
-  
+  const {name} = req.body
+  db.query('INSERT INTO movies (movie_name) VALUES (?)', name, (err,results) =>{
+    const newMovie = {
+      name
+    }
+    res.json(newMovie)
+  })
 })
 
 app.listen(PORT, () =>{
